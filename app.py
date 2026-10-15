@@ -47,12 +47,14 @@ if prompt:
             try:
                 chatbot = load_model()
 
-                result = chatbot(
-                    "Answer the following question clearly and "
-                    "concisely: " + prompt,
-                    max_new_tokens=100,
-                    do_sample=False
-                )
+ result = chatbot(
+    "Give a helpful, accurate answer in 2 to 4 complete sentences. "
+    "For greetings, respond warmly. For factual questions, explain "
+    "the answer simply. For requests or plans, suggest useful next steps. "
+    "Question: " + prompt,
+    max_new_tokens=120,
+    do_sample=False
+)
 
                 answer = result[0]["generated_text"].strip()
 
